@@ -10,7 +10,7 @@ import (
 const HostURL string = "http://localhost:19090"
 
 type ClientCtx struct {
-	visApi *VisualisationClient
+	VisApi *VisualisationClient
 }
 
 func NewClientCtx(host *string) (*ClientCtx, error) {
@@ -20,7 +20,7 @@ func NewClientCtx(host *string) (*ClientCtx, error) {
 	}
 
 	return &ClientCtx{
-		visApi: newVisualisationClient(c),
+		VisApi: newVisualisationClient(c),
 	}, nil
 }
 
