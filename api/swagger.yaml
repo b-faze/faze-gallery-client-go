@@ -1,0 +1,128 @@
+openapi: 3.0.1
+info:
+  title: Faze.Examples.Gallery.API
+  version: v1
+servers:
+- url: /
+paths:
+  /images:
+    get:
+      tags:
+      - Images
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GalleryImage'
+                x-content-type: text/plain
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GalleryImage'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GalleryImage'
+  /visualisations:
+    get:
+      tags:
+      - Visualisations
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Visualisation'
+                x-content-type: text/plain
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Visualisation'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Visualisation'
+    post:
+      tags:
+      - Visualisations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Visualisation'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Visualisation'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Visualisation'
+      responses:
+        "200":
+          description: Success
+  /visualisations/{id}:
+    get:
+      tags:
+      - Visualisations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          nullable: true
+      responses:
+        "200":
+          description: Success
+components:
+  schemas:
+    GalleryImage:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        width:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
+      additionalProperties: false
+      example:
+        name: name
+        width: 0
+        description: description
+        id: id
+        height: 6
+    Visualisation:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+      example:
+        name: name
+        id: id
