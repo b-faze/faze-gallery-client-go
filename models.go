@@ -1,6 +1,6 @@
 package fazegalleryclient
 
 type Visualisation struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID   string `json:"Id"`
+	Name string `json:"Name"`
 }
