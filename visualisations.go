@@ -31,7 +31,8 @@ func (vc *VisualisationClient) GetAll(authToken *string) (*[]Visualisation, erro
 	return &orders, nil
 }
 
-func (c *Client) Get(id string) (*Visualisation, error) {
+func (vc *VisualisationClient) Get(id string) (*Visualisation, error) {
+	c := (*Client)(vc)
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s/visualisations/%s", c.HostURL, id), nil)
 	if err != nil {
 		return nil, err
@@ -51,7 +52,8 @@ func (c *Client) Get(id string) (*Visualisation, error) {
 	return &order, nil
 }
 
-func (c *Client) Create(vis *Visualisation) (*Visualisation, error) {
+func (vc *VisualisationClient) Create(vis *Visualisation) (*Visualisation, error) {
+	c := (*Client)(vc)
 	rb, err := json.Marshal(vis)
 	if err != nil {
 		return nil, err
@@ -76,7 +78,8 @@ func (c *Client) Create(vis *Visualisation) (*Visualisation, error) {
 	return &result, nil
 }
 
-func (c *Client) UpdateOrder(id string, vis *Visualisation) (*Visualisation, error) {
+func (vc *VisualisationClient) UpdateOrder(id string, vis *Visualisation) (*Visualisation, error) {
+	c := (*Client)(vc)
 	rb, err := json.Marshal(vis)
 	if err != nil {
 		return nil, err
@@ -101,7 +104,8 @@ func (c *Client) UpdateOrder(id string, vis *Visualisation) (*Visualisation, err
 	return &result, nil
 }
 
-func (c *Client) Delete(id string) error {
+func (vc *VisualisationClient) Delete(id string) error {
+	c := (*Client)(vc)
 	req, err := http.NewRequest("DELETE", fmt.Sprintf("%s/visualisations/%s", c.HostURL, id), nil)
 	if err != nil {
 		return err
