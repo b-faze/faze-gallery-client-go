@@ -8,10 +8,18 @@ import (
 	"strings"
 )
 
-type VisualisationClient Client
+type VisualisationClient struct {
+	client *client
+}
 
-func (vc *VisualisationClient) GetAll(authToken *string) (*[]Visualisation, error) {
-	c := (*Client)(vc)
+func newVisualisationClient(client *client) *VisualisationClient {
+	return &VisualisationClient{
+		client: client,
+	}
+}
+
+func (vc *VisualisationClient) GetAll() (*[]Visualisation, error) {
+	c := vc.client
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s/visualisations", c.HostURL), nil)
 	if err != nil {
 		return nil, err
@@ -32,7 +40,7 @@ func (vc *VisualisationClient) GetAll(authToken *string) (*[]Visualisation, erro
 }
 
 func (vc *VisualisationClient) Get(id string) (*Visualisation, error) {
-	c := (*Client)(vc)
+	c := vc.client
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s/visualisations/%s", c.HostURL, id), nil)
 	if err != nil {
 		return nil, err
@@ -53,7 +61,7 @@ func (vc *VisualisationClient) Get(id string) (*Visualisation, error) {
 }
 
 func (vc *VisualisationClient) Create(vis *Visualisation) (*Visualisation, error) {
-	c := (*Client)(vc)
+	c := vc.client
 	rb, err := json.Marshal(vis)
 	if err != nil {
 		return nil, err
@@ -79,7 +87,7 @@ func (vc *VisualisationClient) Create(vis *Visualisation) (*Visualisation, error
 }
 
 func (vc *VisualisationClient) UpdateOrder(id string, vis *Visualisation) (*Visualisation, error) {
-	c := (*Client)(vc)
+	c := vc.client
 	rb, err := json.Marshal(vis)
 	if err != nil {
 		return nil, err
@@ -105,7 +113,7 @@ func (vc *VisualisationClient) UpdateOrder(id string, vis *Visualisation) (*Visu
 }
 
 func (vc *VisualisationClient) Delete(id string) error {
-	c := (*Client)(vc)
+	c := vc.client
 	req, err := http.NewRequest("DELETE", fmt.Sprintf("%s/visualisations/%s", c.HostURL, id), nil)
 	if err != nil {
 		return err

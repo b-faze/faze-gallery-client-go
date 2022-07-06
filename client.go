@@ -9,15 +9,28 @@ import (
 
 const HostURL string = "http://localhost:19090"
 
-// Client -
-type Client struct {
+type ClientCtx struct {
+	visApi *VisualisationClient
+}
+
+func NewClientCtx(host *string) (*ClientCtx, error) {
+	c, err := newClient(host)
+	if err != nil {
+		return nil, err
+	}
+
+	return &ClientCtx{
+		visApi: newVisualisationClient(c),
+	}, nil
+}
+
+type client struct {
 	HostURL    string
 	HTTPClient *http.Client
 }
 
-// NewClient -
-func NewClient(host *string) (*Client, error) {
-	c := Client{
+func newClient(host *string) (*client, error) {
+	c := client{
 		HTTPClient: &http.Client{Timeout: 10 * time.Second},
 		HostURL:    HostURL,
 	}
@@ -29,7 +42,7 @@ func NewClient(host *string) (*Client, error) {
 	return &c, nil
 }
 
-func (c *Client) doRequest(req *http.Request) ([]byte, error) {
+func (c *client) doRequest(req *http.Request) ([]byte, error) {
 
 	res, err := c.HTTPClient.Do(req)
 	if err != nil {
