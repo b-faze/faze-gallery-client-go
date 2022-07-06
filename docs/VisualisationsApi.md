@@ -31,7 +31,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **VisualisationsIdGet**
-> VisualisationsIdGet(ctx, id)
+> Visualisation VisualisationsIdGet(ctx, id)
 
 
 ### Required Parameters
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**Visualisation**](Visualisation.md)
 
 ### Authorization
 
@@ -52,12 +52,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **VisualisationsPost**
-> VisualisationsPost(ctx, optional)
+> Visualisation VisualisationsPost(ctx, optional)
 
 
 ### Required Parameters
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**Visualisation**](Visualisation.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/_*+json
- - **Accept**: Not defined
+ - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

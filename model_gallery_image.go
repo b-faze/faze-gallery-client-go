@@ -9,9 +9,9 @@
 package swagger
 
 type GalleryImage struct {
-	Id string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	Id          string `json:"id,omitempty"`
+	Name        string `json:"name,omitempty"`
 	Description string `json:"description,omitempty"`
-	Width int32 `json:"width,omitempty"`
-	Height int32 `json:"height,omitempty"`
+	Width       int32  `json:"width,omitempty"`
+	Height      int32  `json:"height,omitempty"`
 }
