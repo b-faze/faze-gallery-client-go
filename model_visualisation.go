@@ -9,6 +9,6 @@
 package swagger
 
 type Visualisation struct {
-	Id   string `json:"id,omitempty"`
+	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
 }
