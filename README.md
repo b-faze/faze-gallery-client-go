@@ -23,6 +23,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ImagesApi* | [**ImagesGet**](docs/ImagesApi.md#imagesget) | **Get** /images | 
 *VisualisationsApi* | [**VisualisationsGet**](docs/VisualisationsApi.md#visualisationsget) | **Get** /visualisations | 
+*VisualisationsApi* | [**VisualisationsIdDelete**](docs/VisualisationsApi.md#visualisationsiddelete) | **Delete** /visualisations/{id} | 
 *VisualisationsApi* | [**VisualisationsIdGet**](docs/VisualisationsApi.md#visualisationsidget) | **Get** /visualisations/{id} | 
 *VisualisationsApi* | [**VisualisationsIdPut**](docs/VisualisationsApi.md#visualisationsidput) | **Put** /visualisations/{id} | 
 *VisualisationsApi* | [**VisualisationsPost**](docs/VisualisationsApi.md#visualisationspost) | **Post** /visualisations | 
